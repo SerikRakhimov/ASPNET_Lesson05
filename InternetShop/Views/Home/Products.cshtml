@@ -1,0 +1,33 @@
+﻿<h3 class="text-success">Список товаров</h3>
+
+<p><a href="/Home/AddProduct" class="btn btn-primary btn-lg">Новый товар</a></p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th width="70">Id</th>
+            <th width="150">Товар</th>
+            <th width="150">Стоимость</th>
+            <th width="50"></th>
+            <th width="50"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in ViewBag.Products)
+        {
+
+            <tr>
+                <td><h4 class="text-primary">@product.Id</h4></td>
+                <td>
+                    <h4 class="text-primary"><a href="/Home/Product/@product.Id">@product.Name</a></h4>
+                </td>
+                <td><h4 class="text-primary">@product.Price</h4></td>
+                <td>
+                    <h4><a href="/Home/EditProduct/@product.Id" class="btn btn-primary btn-lg">Корректировать</a></h4>
+                </td>
+                <td>
+                    <h4><a href="/Home/DeleteProduct/@product.Id" class="btn btn-primary btn-lg">Удалить</a></h4>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
